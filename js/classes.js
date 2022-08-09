@@ -49,8 +49,10 @@ class Players{
     //Movement of the players 
     move(){
         this.draw()
+        //Setting up position of the box for attacking
         this.Box.position.x = this.position.x + this.Box.offset.x
         this.Box.position.y = this.position.y
+        // x movement
         this.position.x +=this.vel.x
         if(this.position.x === canvas.width){
             this.position.x = 0
@@ -60,7 +62,7 @@ class Players{
         }
         this.position.y += this.vel.y
         
-
+        //validation to not go out of the canvas Y axis
         if(this.position.y + this.height + this.vel.y>= canvas.height ){
             this.vel.y = 0
         }else this.vel.y += gravity
