@@ -50,6 +50,12 @@ class Players{
         this.Box.position.x = this.position.x + this.Box.offset.x
         this.Box.position.y = this.position.y
         this.position.x +=this.vel.x
+        if(this.position.x === canvas.width){
+            this.position.x = 0
+        }
+        else if(this.position.x === 0){
+            this.position.x = canvas.width
+        }
         this.position.y += this.vel.y
         
 

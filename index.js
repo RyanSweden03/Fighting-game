@@ -46,7 +46,7 @@ const P2 = new Players(
     'green',
     {
         position:{
-            x: 250,
+            x: 1000,
             y:100},
         velocity:{
             x:0,
@@ -60,6 +60,7 @@ const P2 = new Players(
 
 function mov(){
     // WAD Player
+    
     if (keys.a.pressed && P1.Last === 'a'){
         P1.vel.x = -5
     }else if (keys.d.pressed && P1.Last=== 'd'){
