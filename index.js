@@ -96,10 +96,11 @@ if (Rect1.Box.position.x + Rect1.Box.width >= Rect2.position.x && Rect1.Box.posi
     }
 }
 let timer = 60
-
+let finished = false
 function decreasetimerAndEndGames(){
     let winner
-    if(timer > 0){
+    
+    if(timer > 0 && finished === false){
         setTimeout(decreasetimerAndEndGames,1000);
         timer--
         document.querySelector('#timer').innerHTML = timer
@@ -108,23 +109,28 @@ function decreasetimerAndEndGames(){
         if(P1.health > P2.health){
             document.querySelector('#winner').innerHTML = 'Player 1 Wins'
             winner = 'Player 1 Wins'
+            finished = true
         }else if(P1.health < P2.health){
             document.querySelector('#winner').innerHTML = 'Player 2 Wins'
             winner = 'Player 2 Wins'
+            finished = true
         }else{
             document.querySelector('#winner').innerHTML = 'Draw'
             winner = 'Draw'
+            finished = true
         }
     }
     if(P1.health === 0){
         document.querySelector('#winner').innerHTML = 'Player 2 Wins'
         winner = 'Player 2 Wins'
+        finished = true
     }
     if(P2.health === 0){
         document.querySelector('#winner').innerHTML = 'Player 1 Wins'
         winner = 'Player 1 Wins'
+        finished = true
     }
-    console.log(winner)
+    console.log(finished)
 
 
 }
@@ -151,6 +157,7 @@ Run()
 
 window.addEventListener('keydown', (evento)=>{
     console.log(evento.key)
+    if(finished === false){
     switch(evento.key){
         case 'd':
             keys.d.pressed = true
@@ -181,6 +188,7 @@ window.addEventListener('keydown', (evento)=>{
             P2.attack()
             break      
 
+    }
     }
 })
 

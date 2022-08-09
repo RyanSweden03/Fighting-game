@@ -48,6 +48,7 @@ class Players{
     }
     //Movement of the players 
     move(){
+        
         this.draw()
         //Setting up position of the box for attacking
         this.Box.position.x = this.position.x + this.Box.offset.x
