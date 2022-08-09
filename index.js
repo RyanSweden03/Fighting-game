@@ -93,9 +93,10 @@ if (Rect1.Box.position.x + Rect1.Box.width >= Rect2.position.x && Rect1.Box.posi
         }
     }
 }
-let timer = 10
-let winner
+let timer = 60
+
 function decreasetimerAndEndGames(){
+    let winner
     if(timer > 0){
         setTimeout(decreasetimerAndEndGames,1000);
         timer--
