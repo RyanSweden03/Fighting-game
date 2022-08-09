@@ -83,7 +83,9 @@ if (Rect1.Box.position.x + Rect1.Box.width >= Rect2.position.x && Rect1.Box.posi
         && Rect1.Attacking){
         console.log(mensaje)
         Rect1.Attacking = false
-        Rect2.health -= 10
+        if(Rect2.health > 0){
+            Rect2.health -= 10
+        }
         console.log(Rect2.health)
         if (caso === 1){
             document.querySelector('#P2Health').style.width = P2.health+'%'
@@ -113,6 +115,14 @@ function decreasetimerAndEndGames(){
             document.querySelector('#winner').innerHTML = 'Draw'
             winner = 'Draw'
         }
+    }
+    if(P1.health === 0){
+        document.querySelector('#winner').innerHTML = 'Player 2 Wins'
+        winner = 'Player 2 Wins'
+    }
+    if(P2.health === 0){
+        document.querySelector('#winner').innerHTML = 'Player 1 Wins'
+        winner = 'Player 1 Wins'
     }
     console.log(winner)
 
