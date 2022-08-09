@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        * {
+          box-sizing: border-box;
+          font-family: 'Press Start 2P', cursive;
+        }
+      </style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,19 +21,105 @@
         <source src = "/music/SamuraiShodown.mp3" type = "audio/mepg">
         <source src = "/music/Samurai-Shodown-_2019ogg.ogg" type = "audio/ogg">
     </audio>
-    <script>
-        var audio = document.getElementById("music");
-        audio.volume = 0.1;
-      </script>
 </head>
 <body>
-    <canvas>  
-    </canvas>
+    
+<div style="position: relative; display: inline-block">
+    <!-- Red container div-->
+        <div style="position: absolute; display: flex; width: 100%; align-items: center; padding: 25px;">
+        <!-- Player1 Health-->
+            
+        <div
+        style="
+          position: relative;
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          border-top: 4px solid white;
+          border-left: 4px solid white;
+          border-bottom: 4px solid white;
+        "
+      >
+        <div style="background-color: red; height: 30px; width: 100%"></div>
+        <div
+          id="P1Health"
+          style="
+            position: absolute;
+            background: #1dd83c;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+          "
+        ></div>
+      </div>
+    
+      <div
+      id="timer"
+      style="
+        background-color: black;
+        width: 100px;
+        height: 50px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border: 4px solid white;
+      "
+    >
+      10
+    </div>
+            <!-- Player2 Health-->
+            <div
+            style="
+              position: relative;
+              width: 100%;
+              border-top: 4px solid white;
+              border-bottom: 4px solid white;
+              border-right: 4px solid white;
+            "
+          >
+            <div style="background-color: red; height: 30px"></div>
+            <div
+              id="P2Health"
+              style="
+                position: absolute;
+                background: #1dd83c;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+              "
+            ></div>
+          </div>
+  
+        
+    
+        </div>
+        <div
+        id="winner"
+        style="
+          position: absolute;
+          color: rgb(180, 49, 49);
+          align-items: center;
+          justify-content: center;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          font-size:50px ;
+          display: flex;
+            font-weight: bold;
 
+        "
+      >
+      </div>
+    <canvas></canvas>
+</div>
     <script src="/js/classes.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
-
 
 

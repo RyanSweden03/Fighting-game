@@ -77,15 +77,47 @@ function mov(){
     }
 }
 
-function checkCollision(Rect1, Rect2, mensaje){
+function checkCollision(Rect1, Rect2, mensaje,caso){
 if (Rect1.Box.position.x + Rect1.Box.width >= Rect2.position.x && Rect1.Box.position.x <= Rect2.position.x+Rect2.width
         && Rect1.Box.position.y +Rect1.Box.height>= Rect2.position.y && Rect1.Box.position.y <= Rect2.position.y + Rect2.height
         && Rect1.Attacking){
         console.log(mensaje)
         Rect1.Attacking = false
+        Rect2.health -= 10
+        console.log(Rect2.health)
+        if (caso === 1){
+            document.querySelector('#P2Health').style.width = P2.health+'%'
+        }
+        if(caso === 2){
+            document.querySelector('#P1Health').style.width = P1.health + '%'
+        }
     }
 }
+let timer = 10
+let winner
+function decreasetimerAndEndGames(){
+    if(timer > 0){
+        setTimeout(decreasetimerAndEndGames,1000);
+        timer--
+        document.querySelector('#timer').innerHTML = timer
+    }   
+    if(timer === 0){
+        if(P1.health > P2.health){
+            document.querySelector('#winner').innerHTML = 'Player 1 Wins'
+            winner = 'Player 1 Wins'
+        }else if(P1.health < P2.health){
+            document.querySelector('#winner').innerHTML = 'Player 2 Wins'
+            winner = 'Player 2 Wins'
+        }else{
+            document.querySelector('#winner').innerHTML = 'Draw'
+            winner = 'Draw'
+        }
+    }
+    console.log(winner)
 
+
+}
+decreasetimerAndEndGames()
 function Run(){
     // console.log(background)
     window.requestAnimationFrame(Run)
@@ -96,12 +128,11 @@ function Run(){
     P2.move()
     P1.vel.x = 0
     P2.vel.x = 0
-    
     mov()
 
     //Collision detection
-    checkCollision(P1,P2,"Pegaaaaaaaaaaaaaa el 1")
-    checkCollision(P2,P1, "Pegaaaaaaaaaaaaaaaa el 2")
+    checkCollision(P1,P2,"Pegaaaaaaaaaaaaaa el 1",1)
+    checkCollision(P2,P1, "Pegaaaaaaaaaaaaaaaa el 2",2)
 
 }
 Run()

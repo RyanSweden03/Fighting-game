@@ -5,6 +5,7 @@ class Sprite{
         this.width = 50
         this.image = new Image()
         this.image.src = Source
+        
     }
     draw(){
        c.drawImage(this.image,this.position.x,this.position.y)
@@ -12,7 +13,7 @@ class Sprite{
 }
 
 class Players{
-    constructor(color, {position, velocity,offset}, ){
+    constructor(color, {position, velocity,offset} ){
         this.color = color,
         this.position = position,
         this.vel = velocity
@@ -20,6 +21,7 @@ class Players{
         this.width = 50
         this.Last
         this.Attacking = false
+        this.health = 100
         this.Box = {
             position:{
                 x: this.position.x,
