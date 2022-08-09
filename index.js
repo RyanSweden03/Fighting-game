@@ -1,6 +1,8 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
+var audio = document.getElementById("music");
+audio.volume = 0.1;
 
 canvas.width = 1200
 canvas.height = 576
