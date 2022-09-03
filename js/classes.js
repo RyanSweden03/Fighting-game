@@ -19,7 +19,6 @@ class Players{
         this.vel = velocity
         this.height = 150
         this.width = 50
-        this.Last
         this.Attacking = false
         this.health = 100
         this.Box = {

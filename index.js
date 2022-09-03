@@ -155,10 +155,10 @@ function Run(){
 Run()
 
 
-window.addEventListener('keydown', (evento)=>{
-    console.log(evento.key)
+window.addEventListener('keydown', (event)=>{
+    console.log(event.key)
     if(finished === false){
-    switch(evento.key){
+    switch(event.key){
         case 'd':
             keys.d.pressed = true
             P1.Last = 'd'
@@ -192,8 +192,8 @@ window.addEventListener('keydown', (evento)=>{
     }
 })
 
-window.addEventListener('keyup', (evento)=>{
-    switch(evento.key){
+window.addEventListener('keyup', (event)=>{
+    switch(event.key){
         case 'd':
             keys.d.pressed = false
             break
